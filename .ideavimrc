@@ -1,0 +1,112 @@
+
+""" Map leader to space ------------------------
+let mapleader = " "
+
+
+
+""" Plugins ------------------------------------
+
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'takac/vim-hardtime'
+
+""" Plugin settings ---------------------------
+
+nmap <leader><leader>w :action KJumpAction.Word0<CR>
+
+nmap <leader>r :action ReformatCode<CR>
+nmap <leader><leader><leader> :action FindInPath<CR>
+
+
+""" Common settings --------------------------- 
+
+set ignorecase
+set smartcase
+set scrolloff=5         " 3 lines above/below cursor when scrolling
+set noerrorbells
+set visualbell 
+set t_vb= 
+
+" Integrate with system clipboard
+set clipboard=unnamedplus,unnamed
+set clipboard=unnamed
+set clipboard+=ideaput
+
+
+" enable relative line numbers when in normal mode 
+" and absolute line numbers in insert mode
+:set number relativenumber
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+""" Mappings -----------------------------------
+
+" yank to eol like all the other commands like this
+map Y y$
+
+imap jj <Esc> 
+
+" navigate splits with vim keybindings
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+close active tab 
+nnoremap WW :action CloseContent<CR>
+
+nnoremap \ :action SplitVertically<CR>
+nnoremap - :action SplitHorizontally<CR>
+" nmap <C-r> :action RenameElement<CR>
+
+" code navigation
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gc :action GoToClass<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gr :action FindUsages<cr>
+nnoremap gt :action GotoTest<cr>
+nnoremap <leader>k :action HighlightUsagesInFile<cr>
+nnoremap <leader>R :action Run<cr>
+nnoremap <leader>D :action Debug<cr>
+nnoremap <leader>c :action CheckStyleCurrentFileAction<cr>
+nnoremap <silent> <c-n> :action ActivateProjectToolWindow<CR>
+nnoremap <silent> <c-p> :action GotoFile<CR>
+
+
+""" Idea specific settings ------------------
+
+set ideajoin
+
+sethandler <C-2> a:vim
+sethandler <C-S-2> a:vim
+sethandler <C-6> a:vim
+sethandler <C-S-6> a:vim
+sethandler <C-A> a:vim
+sethandler <C-B> a:vim
+sethandler <C-C> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:vim
+sethandler <C-G> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-M> a:vim
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-Q> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:vim
+sethandler <C-T> a:vim
+sethandler <C-V> a:vim
+sethandler <C-W> a:vim
+
