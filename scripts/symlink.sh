@@ -13,8 +13,6 @@ fi
 
 CONFIG_DIR="${HOME}/.config"
 
-mkdir -p "${CONFIG_DIR}"
-
 create_symlink() {
   local source="$1"
   local target="$2"
@@ -59,11 +57,11 @@ process_dotfiles() {
   local action="$1"
 
   if [ "$action" = "create" ]; then
-    create_symlink "${DOTFILES_DIR}/nvim" "${CONFIG_DIR}/nvim"
-    create_symlink "${DOTFILES_DIR}/bashrc" "${HOME}/.bashrc"
-    create_symlink "${DOTFILES_DIR}/tmux.conf" "${HOME}/.tmux.conf"
-    create_symlink "${DOTFILES_DIR}/gitconfig" "${HOME}/.gitconfig"
-    create_symlink "${DOTFILES_DIR}/.vimrc" "${HOME}/.vimrc"
+    create_symlink "${DOTFILES_DIR}/src/nvim" "${CONFIG_DIR}/nvim"
+    create_symlink "${DOTFILES_DIR}/src/bashrc" "${HOME}/.bashrc"
+    create_symlink "${DOTFILES_DIR}/src/tmux.conf" "${HOME}/.tmux.conf"
+    create_symlink "${DOTFILES_DIR}/src/gitconfig" "${HOME}/.gitconfig"
+    create_symlink "${DOTFILES_DIR}/src/.vimrc" "${HOME}/.vimrc"
     # Add more dotfiles as needed
   elif [ "$action" = "remove" ]; then
     remove_symlink "${CONFIG_DIR}/nvim"
