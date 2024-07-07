@@ -1,0 +1,34 @@
+[user]
+	name = Jeff Skelton
+	email = jeff@jeffskelton.net
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[init]
+	defaultBranch = main
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbes = true
+  hyperlinks = true
+  true-color = always
+  syntax-theme = Nord 
+  zero-style = dim syntax
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[push]
+	autoSetupRemote = true
